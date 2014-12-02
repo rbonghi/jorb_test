@@ -19,6 +19,7 @@ package it.officinerobotiche.test;
 import it.officinerobotiche.serial.frame.SerialFrame;
 import it.officinerobotiche.serial.frame.standard.*;
 import it.officinerobotiche.serial.frame.unav.*;
+import static it.officinerobotiche.serial.frame.standard.Service.NameService.*;
 
 /**
  *
@@ -41,7 +42,7 @@ public class SerialSimple {
          * Service documentation.
          */
         try {
-            Service receive = port.sendSyncFrame(new Service(Service.NameService.VERSION));
+            Service receive = port.sendSyncFrame(new Service(VERSION));
             /**
              * Print information about service message received.
              */
@@ -54,7 +55,10 @@ public class SerialSimple {
         } catch (InterruptedException ex) {
             System.err.println("Error to receive a packet");
         }
-
+        /**
+         * Close serial port communcation.
+         */
+        port.close();
     }
 
 }
