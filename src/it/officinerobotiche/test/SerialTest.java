@@ -1,24 +1,35 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Copyright (C) 2014 Officine Robotiche.
+ *
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the GNU Lesser General Public License
+ * (LGPL) version 2.1 which accompanies this distribution, and is available at
+ * http://www.gnu.org/licenses/lgpl-2.1.html
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+ * Lesser General Public License for more details.
+ *
+ * Contributors:
+ *     Raffaello Bonghi - raffaello.bonghi@officinerobotiche.it
  */
 package it.officinerobotiche.test;
 
-import gnu.io.CommPortIdentifier;
+import java.util.HashSet;
 import java.util.ArrayList;
 import java.util.List;
 
+import gnu.io.CommPortIdentifier;
 /**
  * Import packages for serial communication with unav board
  */
 import it.officinerobotiche.serial.frame.*;
 import it.officinerobotiche.serial.frame.unav.*;
 import it.officinerobotiche.serial.frame.standard.*;
-import java.util.HashSet;
 
 /**
- *
+ * Test SerialFrame serial frame communication.
  * @author Raffaello Bonghi
  */
 public class SerialTest implements ParserListener {
@@ -137,14 +148,14 @@ public class SerialTest implements ParserListener {
      * This function receive a single frame and start decode. In this function
      * you don't receive ACK, NACK messages.
      *
-     * @param evt FrameEvent with a single frame.
+     * @param frame single frame decoded from serial.
      */
     @Override
-    public void parserEvent(FrameEvent evt) {
+    public void parserEvent(AbstractFrame frame) {
         /**
          * Start decode function.
          */
-        decode(evt.getFrame());
+        decode(frame);
     }
 
     /**
