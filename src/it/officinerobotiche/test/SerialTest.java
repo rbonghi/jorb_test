@@ -16,6 +16,8 @@
  */
 package it.officinerobotiche.test;
 
+import it.officinerobotiche.serial.frame.motion.PID;
+import it.officinerobotiche.serial.frame.motion.MotionFrame;
 import java.util.HashSet;
 import java.util.ArrayList;
 import java.util.List;
@@ -25,7 +27,6 @@ import gnu.io.CommPortIdentifier;
  * Import packages for serial communication with unav board
  */
 import it.officinerobotiche.serial.frame.*;
-import it.officinerobotiche.serial.frame.unav.*;
 import it.officinerobotiche.serial.frame.standard.*;
 
 /**
@@ -174,30 +175,30 @@ public class SerialTest implements ParserListener {
             /**
              * For specific unav board.
              */
-            case UNAV:
-                unavMessage((UnavFrame) frame);
+            case MOTION:
+                unavMessage((MotionFrame) frame);
                 break;
         }
     }
 
     /**
-     * This function decode UNAV frame message.
+     * This function decode MOTION frame message.
      *
      * @param message
      */
-    public static void unavMessage(UnavFrame message) {
+    public static void unavMessage(MotionFrame message) {
         switch (message.getCommand()) {
             /**
              * This example is to decode a PID_L and PID_R frame message
              */
             case PID_L:
-                PID.PIDLeft pid_l = (PID.PIDLeft) message;
+                PID pid_l = (PID) message;
                 /**
                  * Now you've a pid_l object and you can use in your program.
                  */
                 break;
             case PID_R:
-                PID.PIDRight pid_r = (PID.PIDRight) message;
+                PID pid_r = (PID) message;
                 break;
         }
     }
