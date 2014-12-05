@@ -16,9 +16,9 @@
  */
 package it.officinerobotiche.test;
 
-import it.officinerobotiche.serial.frame.motion.PID;
 import it.officinerobotiche.serial.frame.SerialFrame;
 import it.officinerobotiche.serial.frame.standard.*;
+import it.officinerobotiche.serial.frame.motion.*;
 import static it.officinerobotiche.serial.frame.standard.Service.NameService.*;
 import static it.officinerobotiche.serial.frame.motion.PID.Type.*;
 /**

@@ -16,8 +16,6 @@
  */
 package it.officinerobotiche.test;
 
-import it.officinerobotiche.serial.frame.motion.PID;
-import it.officinerobotiche.serial.frame.motion.MotionFrame;
 import java.util.HashSet;
 import java.util.ArrayList;
 import java.util.List;
@@ -28,7 +26,7 @@ import gnu.io.CommPortIdentifier;
  */
 import it.officinerobotiche.serial.frame.*;
 import it.officinerobotiche.serial.frame.standard.*;
-
+import it.officinerobotiche.serial.frame.motion.*;
 /**
  * Test SerialFrame serial frame communication.
  * @author Raffaello Bonghi
