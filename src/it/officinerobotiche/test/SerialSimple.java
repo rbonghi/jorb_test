@@ -19,8 +19,6 @@ package it.officinerobotiche.test;
 import it.officinerobotiche.serial.frame.SerialFrame;
 import it.officinerobotiche.serial.frame.standard.*;
 import it.officinerobotiche.serial.frame.motion.*;
-import static it.officinerobotiche.serial.frame.standard.Service.NameService.*;
-import static it.officinerobotiche.serial.frame.motion.PID.Type.*;
 /**
  *
  * @author Raffaello Bonghi
@@ -42,7 +40,7 @@ public class SerialSimple {
          * Service documentation.
          */
         try {
-            Service receive = port.sendSyncFrame(new Service(VERSION));
+            Service receive = port.sendSyncFrame(Service.VERSION);
             /**
              * Print information about service message received.
              */
@@ -50,7 +48,7 @@ public class SerialSimple {
             /**
              * Receive something about PID left.
              */
-            PID pid_left = port.sendSyncFrame(new PID(PID_LEFT));
+            PID pid_left = port.sendSyncFrame(PID.LEFT);
             
         } catch (InterruptedException ex) {
             System.err.println("Error to receive a packet");

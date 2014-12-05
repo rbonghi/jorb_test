@@ -64,7 +64,7 @@ public class SerialTest implements ParserListener {
          * version code on board. Particular details about a type of Service
          * message are in Service documentation.
          */
-        Service service = new Service(Service.NameService.VERSION);
+        Service service = Service.VERSION;
         /**
          * Add in list the service message.
          */
@@ -73,7 +73,7 @@ public class SerialTest implements ParserListener {
          * Create another type of Frame message to send a unav board. This
          * message is for receive time process on unav board.
          */
-        MProcess.Time time = new MProcess.Time();
+        MProcess time = MProcess.TIME;
         /**
          * Add time frame on list frame to send.
          */
