@@ -40,7 +40,7 @@ public class SerialSimple {
          * Service documentation.
          */
         try {
-            Service receive = port.sendSyncFrame(Service.VERSION);
+            Service receive = port.sendSyncFrame(Service.TYPE_BOARD);
             /**
              * Print information about service message received.
              */

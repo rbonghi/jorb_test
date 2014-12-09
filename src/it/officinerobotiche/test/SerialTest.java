@@ -62,13 +62,10 @@ public class SerialTest implements ParserListener {
         /**
          * Now I've create a Service frame message with request to receive a
          * version code on board. Particular details about a type of Service
-         * message are in Service documentation.
+         * message are in Service documentation and finally add in list.
          */
-        Service service = Service.VERSION;
-        /**
-         * Add in list the service message.
-         */
-        list.add(service);
+        list.add(Service.VERSION);
+        list.add(Service.TYPE_BOARD);
         /**
          * Create another type of Frame message to send a unav board. This
          * message is for receive time process on unav board.
@@ -114,7 +111,7 @@ public class SerialTest implements ParserListener {
             /**
              * You've a same name function, but you send a single message.
              */
-            Service receive = port.sendSyncFrame(service);
+            Service receive = port.sendSyncFrame(Service.NAME_BOARD);
             /**
              * Start decoding function, for read the frame received.
              */
@@ -212,17 +209,17 @@ public class SerialTest implements ParserListener {
              * This example print values on time process frame messages.
              */
             case TIME_PROCESS:
-                MProcess.Time time = (MProcess.Time) message;
+                MProcess time = (MProcess) message;
                 int[] processes = time.getProcesses();
                 for (int i = 0; i < processes.length; i++) {
                     System.out.println("Process[" + i + "]: " + processes[i]);
                 }
                 break;
             case FRQ_PROCESS:
-                MProcess.Frequency frequency = (MProcess.Frequency) message;
+                MProcess frequency = (MProcess) message;
                 break;
             case PRIORITY_PROCESS:
-                MProcess.Priority priority = (MProcess.Priority) message;
+                MProcess priority = (MProcess) message;
                 break;
             /**
              * Decode a Service frame message.
