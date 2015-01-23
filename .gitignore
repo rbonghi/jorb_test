@@ -1,5 +1,11 @@
 # Created by https://www.gitignore.io
 
+### Netbeans project ###
+
+nbproject/
+build.xml
+manifest.mf
+
 ### NetBeans ###
 nbproject/private/
 build/
